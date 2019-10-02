@@ -6,7 +6,7 @@ const remove = async (fastify) => {
         404: 'error404#'
       }
     }
-  }, async (req, replay) => {
+  }, async (req) => {
     const { id } = req.params;
     const { db, ObjectId } = fastify.mongo;
     const { value } = await db.collection('todo').findOneAndDelete({ _id: ObjectId(id) })

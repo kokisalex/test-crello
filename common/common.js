@@ -45,4 +45,6 @@ export const objToQuery = (url, obj) => {
   return url + query
 }
 
-export const validateObj = (obj1, obj2) => JSON.stringify(obj1) === JSON.stringify(obj2)
+export const validateObj = (obj1, obj2) => {
+  return JSON.stringify(obj1) === JSON.stringify(obj2)
+}

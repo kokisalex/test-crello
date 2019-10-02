@@ -6,7 +6,7 @@ const get = async (fastify) => {
         404: 'error404#',
       }
     }
-  }, async (req, replay) => { 
+  }, async () => { 
     const { db } = fastify.mongo;
     return await db.collection('todo').find().toArray()
   })

@@ -9,7 +9,9 @@ const TodoList = () => {
   } } = useContext(Context);
 
 
-  const filteredTodo = todoList.sort((a, b) => a.date > b.date && -1 ).filter(item => item.title.includes(searchTodoName))
+  const filteredTodo = todoList
+    .sort((a, b) => a.date > b.date && -1)
+    .filter(item => item.title.includes(searchTodoName))
 
   return (
     <table className="table">

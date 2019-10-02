@@ -7,15 +7,17 @@
     "dev-api": "node ./api/bin",
     "dev-all": "npm run dev & npm run dev-api",
     "dev": "next dev",
-    "build": "next build"
+    "build": "next build",
+    "lint": "eslint ."
   },
   "name": "test-crello",
   "main": "index.js",
   "license": "ISC",
   "keywords": [],
   "devDependencies": {
+    "babel-eslint": "^10.0.3",
     "eslint": "^6.4.0",
-    "eslint-plugin-react-hooks": "^2.1.1",
+    "eslint-plugin-react": "^7.15.1",
     "jest": "^24.9.0"
   },
   "description": "",

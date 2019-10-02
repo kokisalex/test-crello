@@ -6,7 +6,7 @@ const upgrade = async (fastify) => {
         404: 'error404#'
       }
     }
-  }, async (req, replay) => {
+  }, async (req) => {
     const {
       params: {
         id,

@@ -8,7 +8,7 @@ const create = async (fastify) => {
         409: 'error409#'
       }
     }
-  }, async (req, replay) => {
+  }, async (req) => {
     const { body } = req;
     body.archive = false;
     body.date = new Date().toISOString();

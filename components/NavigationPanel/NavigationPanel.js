@@ -4,7 +4,7 @@ import SearchTodo from './SearchTodo';
 import ButtonBack from './ButtonBack';
 
 
-const NavigationPanel = ({ router: { route, query } }) => {
+const NavigationPanel = ({ router: { route } }) => {
 
   return (
     <nav className="nav justify-content-end">

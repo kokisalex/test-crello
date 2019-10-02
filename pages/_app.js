@@ -10,13 +10,15 @@ export const Context = React.createContext();
 class CustomApp extends App {
   static async getInitialProps() {
     let todoList = [];
+    let err
     try {
       todoList = await fetch.get('/api/todo')
-    } catch (error) {
-      console.error(error)
+    } catch (error) { 
+      err = error
     }
     return {
       todoList,
+      err,
     }
   }
 
