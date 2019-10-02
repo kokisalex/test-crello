@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { Context } from '../../pages/_app';
+import { sortDate, searchFilter } from '../../common/common';
 import Todo from './Todo';
 
 const TodoList = () => {
@@ -10,8 +11,8 @@ const TodoList = () => {
 
 
   const filteredTodo = todoList
-    .sort((a, b) => a.date > b.date && -1)
-    .filter(item => item.title.includes(searchTodoName))
+    .sort(sortDate)
+    .filter(searchFilter(searchTodoName))
 
   return (
     <table className="table">

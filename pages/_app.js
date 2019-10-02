@@ -3,7 +3,7 @@ import App from 'next/app';
 import 'bootstrap/dist/css/bootstrap.css';
 import Header from '../components/Header/Header';
 import fetch from '../common/fetch';
-import { removeTodo, newData } from '../common/common';
+import { removeTodo } from '../common/common';
 
 export const Context = React.createContext();
 
@@ -59,10 +59,7 @@ class CustomApp extends App {
   }
 
   async changeTodo(id) {
-    const { todoTitle: title, todoBody: body, todoList, } = this.state;
-    const oldTodo = todoList.find(i => i._id === id)
-    const patchBody = newData(oldTodo, { title, body })
-    await fetch.patch(`/api/todo/${id}`, patchBody);
+    await fetch.patch(`/api/todo/${id}`, { archive: true });
     const todoListUpdated = await fetch.get('/api/todo')
     this.setState({
       todoList: todoListUpdated
