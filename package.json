@@ -14,8 +14,9 @@
   "license": "ISC",
   "keywords": [],
   "devDependencies": {
-    "jest": "^24.9.0",
-    "eslint": "^6.4.0"
+    "eslint": "^6.4.0",
+    "eslint-plugin-react-hooks": "^2.1.1",
+    "jest": "^24.9.0"
   },
   "description": "",
   "dependencies": {

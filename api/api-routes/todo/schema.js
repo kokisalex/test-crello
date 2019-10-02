@@ -9,8 +9,14 @@ const todoId = {
     _id: { type: 'string' },
     title: { type: 'string', minLength: 5 },
     body: { type: 'string', minLength: 10 },
-    archive: { type: 'boolean' },
-    date: { type: 'string' }
+    archive: {
+      type: 'boolean',
+      default: false
+    },
+    date: {
+      type: 'string',
+      default: new Date().toISOString()
+    }
   }
 }
 
@@ -28,20 +34,9 @@ const todoRemove = {
   }
 }
 
-const todoGetQuery = {
-  $id: 'todoQuery',
-  type: 'object',
-  properties: {
-    archive: { 
-      type: 'boolean',
-      default: false
-     },
-  }
-}
 
 module.exports = {
   todoId,
   todoList,
   todoRemove,
-  todoGetQuery
 };

@@ -16,6 +16,13 @@ export const removeTodo = (list, id) => {
   return partOne.concat(partTwo)
 }
 
+export const updateListTodo = (list, id, item) => {
+  const index = list.findIndex(i => i._id === id);
+  const partOne = list.slice(0, index);
+  const partTwo = list.slice(index + 1)
+  return partOne.concat([item]).concat(partTwo);
+}
+
 export const newData = (body, newBody) => {
   const keys = Object.keys(body)
   return keys.reduce((acc, value) => {
@@ -37,3 +44,5 @@ export const objToQuery = (url, obj) => {
   }, '?')
   return url + query
 }
+
+export const validateObj = (obj1, obj2) => JSON.stringify(obj1) === JSON.stringify(obj2)

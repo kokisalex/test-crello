@@ -6,7 +6,6 @@ const upgradeTodo = require('./todo/upgrade');
 
 
 module.exports = async (fastify) => {
-  await fastify.addSchema(todoSchema.todoGetQuery)
   await fastify.addSchema(todoSchema.todoId)
   await fastify.addSchema(todoSchema.todoList)
   await fastify.addSchema(todoSchema.todoRemove)

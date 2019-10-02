@@ -3,7 +3,7 @@ import { Context}  from '../../pages/_app';
 import { formatDate } from '../../common/common';
 
 
-const TodoRender = ({ _id, title, date, body }, index) => {
+const TodoRender = ({ _id, title, date, body, archive }, index) => {
 
   const { action: {
     removeTodo,
@@ -11,7 +11,7 @@ const TodoRender = ({ _id, title, date, body }, index) => {
   } } = useContext(Context);
   
   return (
-    <tr key={_id}>
+    <tr key={_id} className={archive ? "text-muted" : ""}>
       <th scope="row">{index + 1}</th>
       <td>{formatDate(date)}</td>
       <td>{title}</td>
@@ -21,9 +21,9 @@ const TodoRender = ({ _id, title, date, body }, index) => {
         }
       </td>
       <td className="btn-group col">
-        <button onClick={() => changeTodo(_id)} className="btn btn-secondary btn-light">
+        {!archive && <button onClick={() => changeTodo(_id)} className="btn btn-secondary btn-light">
           <img src="/static/icon/check.svg" />
-        </button>
+        </button>}
         <button onClick={() => removeTodo(_id)} className="btn btn-secondary btn-light">
           <img src="/static/icon/trash.svg" />
         </button>

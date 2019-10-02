@@ -2,10 +2,9 @@ import { withRouter } from 'next/router'
 import CreateTodo from './CreateTodoButton';
 import SearchTodo from './SearchTodo';
 import ButtonBack from './ButtonBack';
-import ArchiveTodoButton from './ArchiveTodoButton';
 
 
-const NavigationPanel = ({ router: { route } }) => {
+const NavigationPanel = ({ router: { route, query } }) => {
 
   return (
     <nav className="nav justify-content-end">
@@ -14,7 +13,7 @@ const NavigationPanel = ({ router: { route } }) => {
       </li>
       <li className="nav-item nav-link">
         {
-          route === '/create' ? <ButtonBack /> : (<><CreateTodo /> <ArchiveTodoButton /></>)
+          route === '/create' ? <ButtonBack /> : <CreateTodo />
         }
       </li>
     </nav>

@@ -3,20 +3,15 @@ import App from 'next/app';
 import 'bootstrap/dist/css/bootstrap.css';
 import Header from '../components/Header/Header';
 import fetch from '../common/fetch';
-import { removeTodo, newData, objToQuery } from '../common/common';
+import { removeTodo, newData } from '../common/common';
 
 export const Context = React.createContext();
 
 class CustomApp extends App {
-  static async getInitialProps({ router }) {
-    const {
-      query
-    } = router;
-    const url = objToQuery('/api/todo', query)
-
+  static async getInitialProps() {
     let todoList = [];
     try {
-      todoList = await fetch.get(url)
+      todoList = await fetch.get('/api/todo')
     } catch (error) {
       console.error(error)
     }
@@ -65,7 +60,11 @@ class CustomApp extends App {
     const { todoTitle: title, todoBody: body, todoList, } = this.state;
     const oldTodo = todoList.find(i => i._id === id)
     const patchBody = newData(oldTodo, { title, body })
-    const todo = await fetch.patch(`/api/todo/${id}`, patchBody);
+    await fetch.patch(`/api/todo/${id}`, patchBody);
+    const todoListUpdated = await fetch.get('/api/todo')
+    this.setState({
+      todoList: todoListUpdated
+    })
   }
 
   render() {
@@ -78,7 +77,7 @@ class CustomApp extends App {
           changeState: this.changeState.bind(this),
           saveTodo: this.saveTodo.bind(this),
           removeTodo: this.removeTodo.bind(this),
-          changeTodo: this.changeTodo.bind(this)
+          changeTodo: this.changeTodo.bind(this),
         }
       }} >
         <div className="container">
