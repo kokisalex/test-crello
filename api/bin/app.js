@@ -7,13 +7,13 @@ const httpErr = require('./handleErr');
 
 fastify.register(fastifyMongoDB, {
   ...config.mongoDB,
-})
+});
 
 fastify.register(fastifyCORS);
 
 fastify.register(httpErr);
 
-fastify.register(apiRoutes, { prefix: '/api' })
+fastify.register(apiRoutes, { prefix: '/api' });
 
 
 module.exports = fastify;

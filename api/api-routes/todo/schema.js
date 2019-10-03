@@ -18,13 +18,13 @@ const todoId = {
       default: new Date().toISOString()
     }
   }
-}
+};
 
 const todoList = {
   $id: 'todoList',
   type: 'array',
   items: 'todoId#'
-}
+};
 
 const todoRemove = {
   $id: 'todoRemove',
@@ -32,7 +32,7 @@ const todoRemove = {
   properties: {
     _id: { type: 'string' },
   }
-}
+};
 
 
 module.exports = {

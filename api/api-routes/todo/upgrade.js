@@ -12,9 +12,9 @@ const upgrade = async (fastify) => {
         id,
       },
       body
-    } = req
+    } = req;
     const { db, ObjectId } = fastify.mongo;
-    const { value } = await db.collection('todo').findOneAndUpdate({ _id: ObjectId(id) }, { $set: body }, { returnOriginal: false })
+    const { value } = await db.collection('todo').findOneAndUpdate({ _id: ObjectId(id) }, { $set: body }, { returnOriginal: false });
     if (value) {
       return value;
     }
@@ -22,7 +22,7 @@ const upgrade = async (fastify) => {
     err.statusCode = 404;
     throw err;
 
-  })
-}
+  });
+};
 
 module.exports = upgrade;

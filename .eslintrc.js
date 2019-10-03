@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ['eslint:recommended', 'plugin:react/recommended'],
+  extends: ['eslint:recommended', 'plugin:react/recommended', 'plugin:jest/recommended'],
   parser: "babel-eslint",
   parserOptions: {
     ecmaVersion: 2018,
@@ -12,7 +12,7 @@ module.exports = {
   env: {
     es6: true,
     node: true,
-    jest: false,
+    jest: true,
   },
   rules: {
     'react/jsx-uses-react': 'error',
@@ -33,6 +33,7 @@ module.exports = {
       },
     ],
     indent: ['error', 2, { SwitchCase: 1 }],
+    semi: [2, 'always'],
     'spaced-comment': ['error', 'always', { markers: ['/'] }],
     'no-console': 'warn',
     'valid-jsdoc': 'off',

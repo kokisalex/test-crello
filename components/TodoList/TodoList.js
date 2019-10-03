@@ -12,7 +12,7 @@ const TodoList = () => {
 
   const filteredTodo = todoList
     .sort(sortDate)
-    .filter(searchFilter(searchTodoName))
+    .filter(searchFilter(searchTodoName));
 
   return (
     <table className="table">
@@ -31,7 +31,7 @@ const TodoList = () => {
         }
       </tbody>
     </table>
-  )
-}
+  );
+};
 
 export default TodoList;

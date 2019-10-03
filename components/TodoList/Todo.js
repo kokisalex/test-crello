@@ -29,7 +29,7 @@ const TodoRender = ({ _id, title, date, body, archive }, index) => {
         </button>
       </td>
     </tr>
-  )
-}
+  );
+};
 
 export default TodoRender;

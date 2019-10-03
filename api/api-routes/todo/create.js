@@ -15,8 +15,8 @@ const create = async (fastify) => {
     const { db } = fastify.mongo;
     const { insertedId: _id } = await db.collection('todo').insertOne(body);
     Object.assign(body, { _id });
-    return body
-  })
-}
+    return body;
+  });
+};
 
 module.exports = create;

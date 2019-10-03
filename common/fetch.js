@@ -1,6 +1,6 @@
 const fetch = require('isomorphic-unfetch');
 
-const toJson = (res) => res.json()
+const toJson = (res) => res.json();
 
 const fetchData = (url, method, body, headers) => {
   const options = {
@@ -8,7 +8,7 @@ const fetchData = (url, method, body, headers) => {
     headers: headers ? Object.assign(headers, { 'Content-Type': 'application/json' }) : { 'Content-Type': 'application/json' }
   };
   if (body) {
-    Object.assign(options, { body: JSON.stringify(body) })
+    Object.assign(options, { body: JSON.stringify(body) });
   }
 
   if (process.env.NODE_ENV === 'development') {
@@ -16,7 +16,7 @@ const fetchData = (url, method, body, headers) => {
   }
 
   return fetch(url, { ...options })
-    .then(toJson)
+    .then(toJson);
 };
 
 

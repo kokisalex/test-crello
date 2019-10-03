@@ -7,7 +7,7 @@ const App = () => {
       <NavigationPanel />
       <TodoList />
     </>
-  )
-}
+  );
+};
 
 export default App;

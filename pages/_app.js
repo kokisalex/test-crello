@@ -10,16 +10,16 @@ export const Context = React.createContext();
 class CustomApp extends App {
   static async getInitialProps() {
     let todoList = [];
-    let err
+    let err;
     try {
-      todoList = await fetch.get('/api/todo')
+      todoList = await fetch.get('/api/todo');
     } catch (error) { 
-      err = error
+      err = error;
     }
     return {
       todoList,
       err,
-    }
+    };
   }
 
   state = {
@@ -32,7 +32,7 @@ class CustomApp extends App {
   changeState(name, value) {
     this.setState({
       [name]: value,
-    })
+    });
   }
 
   async saveTodo() {
@@ -40,30 +40,30 @@ class CustomApp extends App {
     const body = {
       title: todoTitle,
       body: todoBody,
-    }
+    };
     const todo = await fetch.post('/api/todo', body);
-    const updatedTodoList = [...todoList, todo]
+    const updatedTodoList = [...todoList, todo];
     this.setState({
       todoBody: '',
       todoTitle: '',
       todoList: updatedTodoList
-    })
+    });
   }
 
   async removeTodo(id) {
-    const { _id } = await fetch.delete(`/api/todo/${id}`)
-    const todoList = removeTodo(this.state.todoList, _id)
+    const { _id } = await fetch.delete(`/api/todo/${id}`);
+    const todoList = removeTodo(this.state.todoList, _id);
     this.setState({
       todoList
-    })
+    });
   }
 
   async changeTodo(id) {
     await fetch.patch(`/api/todo/${id}`, { archive: true });
-    const todoListUpdated = await fetch.get('/api/todo')
+    const todoListUpdated = await fetch.get('/api/todo');
     this.setState({
       todoList: todoListUpdated
-    })
+    });
   }
 
   render() {
@@ -85,7 +85,7 @@ class CustomApp extends App {
           </Header>
         </div>
       </Context.Provider>
-    )
+    );
   }
 }
 

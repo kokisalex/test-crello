@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext } from 'react';
 import { Context } from '../../pages/_app';
 import { inputValue } from '../../common/common';
 
@@ -12,7 +12,7 @@ const FormCreateTodo = () => {
       saveTodo,
       changeState,
     }
-  } = useContext(Context)
+  } = useContext(Context);
   return (
     <>
       <div className="form-group">
@@ -29,7 +29,7 @@ const FormCreateTodo = () => {
         </button>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default FormCreateTodo
+export default FormCreateTodo;

@@ -9,6 +9,6 @@ config.server = {
 
 config.mongoDB = {
   url: 'localhost:27017'
-}
+};
 
 module.exports = config;

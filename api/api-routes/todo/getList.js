@@ -8,8 +8,8 @@ const get = async (fastify) => {
     }
   }, async () => { 
     const { db } = fastify.mongo;
-    return await db.collection('todo').find().toArray()
-  })
-}
+    return await db.collection('todo').find().toArray();
+  });
+};
 
 module.exports = get;

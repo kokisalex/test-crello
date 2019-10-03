@@ -28,8 +28,8 @@ const HTTP_ERR = [
 
 const httpErr = fp(async (fastify) => {
   HTTP_ERR.forEach(item => {
-    fastify.addSchema(handlerError(item))
-  })
+    fastify.addSchema(handlerError(item));
+  });
 });
 
 module.exports = httpErr;

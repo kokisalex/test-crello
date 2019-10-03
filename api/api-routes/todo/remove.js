@@ -9,7 +9,7 @@ const remove = async (fastify) => {
   }, async (req) => {
     const { id } = req.params;
     const { db, ObjectId } = fastify.mongo;
-    const { value } = await db.collection('todo').findOneAndDelete({ _id: ObjectId(id) })
+    const { value } = await db.collection('todo').findOneAndDelete({ _id: ObjectId(id) });
     if (value) {
       return { _id: value._id };
     }
@@ -17,7 +17,7 @@ const remove = async (fastify) => {
     err.statusCode = 404;
     throw err;
 
-  })
-}
+  });
+};
 
 module.exports = remove;

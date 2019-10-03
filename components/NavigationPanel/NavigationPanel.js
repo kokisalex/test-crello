@@ -1,4 +1,4 @@
-import { withRouter } from 'next/router'
+import { withRouter } from 'next/router';
 import CreateTodo from './CreateTodoButton';
 import SearchTodo from './SearchTodo';
 import ButtonBack from './ButtonBack';
@@ -17,7 +17,7 @@ const NavigationPanel = ({ router: { route } }) => {
         }
       </li>
     </nav>
-  )
-}
+  );
+};
 
 export default withRouter(NavigationPanel);

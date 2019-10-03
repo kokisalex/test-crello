@@ -1,12 +1,12 @@
 export const sortDate = ({ date: aDate }, { date: bDate }) => {
-  return aDate > bDate && -1
-}
+  return aDate > bDate && -1;
+};
 
 export const searchFilter = (searchValue) => ({ title }) => {
-  return title.includes(searchValue)
-}
+  return title.includes(searchValue);
+};
 
-export const compareId = (id) => ({ _id }) => _id === id
+export const compareId = (id) => ({ _id }) => _id === id;
 
 export const formatDate = (val) => {
   const date = new Date(val);
@@ -14,21 +14,21 @@ export const formatDate = (val) => {
   const month = date.getMonth() + 1;
   const year = date.getFullYear();
 
-  return `${day}.${month}.${year}`
-}
+  return `${day}.${month}.${year}`;
+};
 
-export const inputValue = (val1, val2) => val1 && val2
+export const inputValue = (val1, val2) => (Boolean(val1) && Boolean(val2));
 
 export const removeTodo = (list, id) => {
   const index = list.findIndex(compareId(id));
   const partOne = list.slice(0, index);
-  const partTwo = list.slice(index + 1)
-  return partOne.concat(partTwo)
-}
+  const partTwo = list.slice(index + 1);
+  return partOne.concat(partTwo);
+};
 
 export const updateListTodo = (list, id, item) => {
   const index = list.findIndex(compareId(id));
   const partOne = list.slice(0, index);
-  const partTwo = list.slice(index + 1)
+  const partTwo = list.slice(index + 1);
   return partOne.concat([item]).concat(partTwo);
-}
+};

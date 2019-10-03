@@ -9,13 +9,13 @@ const SearchTodo = () => {
     action: {
       changeState
     },
-  } = useContext(Context)
+  } = useContext(Context);
 
   return (
     <div className="input-group">
       <input value={searchTodoName} onChange={({ target }) => changeState('searchTodoName', target.value)} type="text" className="form-control" />
     </div>
-  )
-}
+  );
+};
 
 export default SearchTodo;

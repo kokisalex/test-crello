@@ -7,7 +7,7 @@ const CreateTodo = () => {
       <NavigationPanel />
       <FormCreateTodo />
     </>
-  )
-}
+  );
+};
 
 export default CreateTodo;

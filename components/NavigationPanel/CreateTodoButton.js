@@ -1,8 +1,8 @@
-import Router from 'next/router'
+import Router from 'next/router';
 
 const CreateTodo = () => (
   <button className="btn btn-outline-secondary" onClick={() => Router.push('/create')} >
     <img src="/static/icon/plus.svg" />
-  </button>)
+  </button>);
 
 export default CreateTodo;
