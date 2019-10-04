@@ -1,8 +1,15 @@
-const fetch = require('isomorphic-unfetch');
+import fetch from 'isomorphic-unfetch';
 
-const toJson = (res) => res.json();
+export const toJson = (res) => res.json();
 
-const fetchData = (url, method, body, headers) => {
+export const checkEnv = (url) => {
+  if (process.env.NODE_ENV === 'development') {
+    return 'http://0.0.0.0:3030' + url;
+  }
+  return url;
+};
+
+export const fetchData = async (url, method, body, headers) => {
   const options = {
     method: method,
     headers: headers ? Object.assign(headers, { 'Content-Type': 'application/json' }) : { 'Content-Type': 'application/json' }
@@ -11,12 +18,11 @@ const fetchData = (url, method, body, headers) => {
     Object.assign(options, { body: JSON.stringify(body) });
   }
 
-  if (process.env.NODE_ENV === 'development') {
-    url = 'http://0.0.0.0:3030' + url;
-  }
+  url = checkEnv(url);
 
-  return fetch(url, { ...options })
-    .then(toJson);
+  const data = await fetch(url, { ...options });
+
+  return toJson(data);
 };
 
 
@@ -27,4 +33,4 @@ const instance = {
   delete: async (url, headers = null) => await fetchData(url, 'DELETE', headers)
 };
 
-module.exports = instance;
+export default instance;

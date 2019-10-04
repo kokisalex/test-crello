@@ -7,5 +7,11 @@ module.exports = {
   collectCoverageFrom: [
     '**/*.js',
   ],
-  transform: { '\\.js': 'babel-jest' }
+  transform: {
+    '\\.js$': './jestTransformer.js',
+  },
+  moduleNameMapper: {
+    '\\.(css|less)$': 'jest-transform-css'
+  },
+  setupFilesAfterEnv: ['<rootDir>/setupTest.js'],
 };

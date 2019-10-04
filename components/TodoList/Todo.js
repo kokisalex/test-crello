@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Context}  from '../../pages/_app';
+import { Context } from '../../pages/_app';
 import { formatDate } from '../../common/common';
 
 
@@ -9,9 +9,9 @@ const TodoRender = ({ _id, title, date, body, archive }, index) => {
     removeTodo,
     changeTodo,
   } } = useContext(Context);
-  
+
   return (
-    <tr key={_id} className={archive ? "text-muted" : ""}>
+    <tr key={_id} className={archive ? 'text-muted' : ''}>
       <th scope="row">{index + 1}</th>
       <td>{formatDate(date)}</td>
       <td>{title}</td>
